@@ -23,12 +23,7 @@ const validateUser = [
     .withMessage(`Last name ${lengthErr}`),
   body("email").isEmail().withMessage(`${emailErr}`).normalizeEmail(),
   body("age").isInt({ min: 18, max: 120 }).withMessage(`Age ${intErr}`),
-  body("bio")
-    .trim()
-    .isAlpha()
-    .withMessage(`Bio ${alphaErr}`)
-    .isLength({ max: 200 })
-    .withMessage(`Bio ${bioErr}`),
+  body("bio").isLength({ max: 200 }).withMessage(`Bio ${bioErr}`),
 ];
 
 exports.usersListGet = (req, res) => {
@@ -95,4 +90,12 @@ exports.usersUpdatePost = [
 exports.usersDeletePost = (req, res) => {
   usersStorage.deleteUser(req.params.id);
   res.redirect("/");
+};
+
+exports.userGet = (req, res) => {
+  console.log(req.query.email);
+  res.render("search", {
+    title: "Search ",
+    user: usersStorage.getUserByEmail(req.query.email),
+  });
 };

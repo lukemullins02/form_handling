@@ -21,6 +21,14 @@ class UsersStorage {
     return this.storage[id];
   }
 
+  getUserByEmail(email) {
+    for (const [key, value] of Object.entries(this.storage)) {
+      if (value.email === email) {
+        return this.storage[value.id];
+      }
+    }
+  }
+
   updateUser(id, { firstName, lastName, email, age, bio }) {
     this.storage[id] = { id, firstName, lastName, email, age, bio };
   }

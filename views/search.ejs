@@ -1,0 +1,20 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <ul>
+      <li>
+        ID: <%= user.id %>, Name: <%= user.firstName %> <%= user.lastName %>
+      </li>
+      <li>Email: <%= user.email %></li>
+      <li>Age: <%= user.age %></li>
+      <li>Bio: <%= user.bio %></li>
+      <a href="/<%= user.id %>/update">Update</a>
+    </ul>
+    <a href="/create">Create a user</a>
+  </body>
+</html>
