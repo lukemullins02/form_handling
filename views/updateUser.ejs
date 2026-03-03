@@ -20,7 +20,29 @@
         value="<%= user.lastName %>"
         required
       />
-      <button type="submit">Update User</button>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        required
+        value="<%= user.email %>"
+      />
+      <input
+        type="number"
+        name="age"
+        id="age"
+        required
+        min="18"
+        max="120"
+        value="<%= user.age %>"
+      />
+      <textarea
+        name="bio"
+        id="bio"
+        maxlength="200"
+        value="<%= user.bio %>"
+      ></textarea>
+      <button type="submit">Submit</button>
     </form>
     <a href="/">Back to home</a>
   </body>
